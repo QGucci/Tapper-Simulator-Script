@@ -1,0 +1,8 @@
+_G.autoTap = true
+while _G.autoTap -- true
+do  local args =  {[1] = 500}
+
+game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickService.RF.Click:InvokeServer()
+
+ wait()
+end
