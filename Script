@@ -1,8 +1,48 @@
-_G.autoTap = true
-while _G.autoTap -- true
-do  local args =  {[1] = 500}
-
-game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickService.RF.Click:InvokeServer()
-
- wait()
-end
+if game.PlaceId == 8807832754 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "BlackMarket Hub - Tapper Simulator", HidePremium = false,   SaveConfig = true, ConfigFolder = "YesFolder"})
+    
+    
+    
+    --Functions
+    function autoTap()
+        while _G.autoTap == true do
+            game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickService.RF.Click:InvokeServer()
+             wait(.0000000000000000000000000000000000000000000000000000000000000000000001)
+        end
+    end
+    
+    
+    --values
+    _G.autoTap = true
+    
+    
+    
+    
+    
+    --Tabs
+    local Clicks = Window:MakeTab({
+        Name = "Clicks",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+    
+    -- Toggles
+    Clicks:AddToggle({
+        Name = "AutoClick",
+        Default = false,
+        Callback = function(Value)
+            _G.autoTap = Value
+            autoTap()
+        end    
+    })
+    
+    
+    
+    
+    
+    
+    
+    end
+    OrionLib:Init()
